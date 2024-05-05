@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import qaml
 
 final class test_appUITests: XCTestCase {
 
@@ -22,12 +23,19 @@ final class test_appUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    @MainActor
+    func testSearching() async throws {
         // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        let app = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let q = QamlClient(apiKey: ProcessInfo.processInfo.environment["QAML_API_KEY"]!, app: app)
+        
+        try await q.execute("type google.com into the search bar at the bottom")
+        try await q.execute("tap go")
+        try await Task.sleep(nanoseconds: 1 * NSEC_PER_SEC)
+        try await q.execute("scroll down")
+        try await q.assertCondition("The screen shows google's site")
     }
 
     func testLaunchPerformance() throws {

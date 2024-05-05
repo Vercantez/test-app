@@ -14,6 +14,7 @@
 		D2D23FB82BE5EE8100A6F779 /* test_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D23FB72BE5EE8100A6F779 /* test_appTests.swift */; };
 		D2D23FC22BE5EE8100A6F779 /* test_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D23FC12BE5EE8100A6F779 /* test_appUITests.swift */; };
 		D2D23FC42BE5EE8100A6F779 /* test_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D23FC32BE5EE8100A6F779 /* test_appUITestsLaunchTests.swift */; };
+		D2D23FD22BE5EED000A6F779 /* qaml in Frameworks */ = {isa = PBXBuildFile; productRef = D2D23FD12BE5EED000A6F779 /* qaml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D23FD22BE5EED000A6F779 /* qaml in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +181,9 @@
 				D2D23FBF2BE5EE8100A6F779 /* PBXTargetDependency */,
 			);
 			name = "test-appUITests";
+			packageProductDependencies = (
+				D2D23FD12BE5EED000A6F779 /* qaml */,
+			);
 			productName = "test-appUITests";
 			productReference = D2D23FBD2BE5EE8100A6F779 /* test-appUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = D2D23F9A2BE5EE8000A6F779;
+			packageReferences = (
+				D2D23FD02BE5EED000A6F779 /* XCRemoteSwiftPackageReference "qaml-swift" */,
+			);
 			productRefGroup = D2D23FA42BE5EE8000A6F779 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D2D23FD02BE5EED000A6F779 /* XCRemoteSwiftPackageReference "qaml-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/qaml-ai/qaml-swift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2D23FD12BE5EED000A6F779 /* qaml */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2D23FD02BE5EED000A6F779 /* XCRemoteSwiftPackageReference "qaml-swift" */;
+			productName = qaml;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2D23F9B2BE5EE8000A6F779 /* Project object */;
 }
